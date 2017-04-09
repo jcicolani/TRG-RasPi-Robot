@@ -27,15 +27,19 @@ while True:
     GPIO.output(trig,True)
     time.sleep(0.00001)
     GPIO.output(trig,False)
+    print("ping")
 
     # Get the start and end times of the return pulse
     while GPIO.input(echo)==0:
         pulse_start = time.time()
+        print("pulse start: " + str(pulse_start), end = "\r")
 
     while GPIO.input(echo)==1:
         pulse_end = time.time()
+        print("pulse end: " + str(pulse_end), end = "\r")
 
     pulse_duration = pulse_end - pulse_start
+    print("duration: " + str(pulse_duration))
 
     # Calculate the distance in centimeters
     distance = pulse_duration * 17150

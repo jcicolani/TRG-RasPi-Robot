@@ -36,10 +36,6 @@ while True:
     # begin while loop to darken LED
     while count > 1:
 
-        pwm.ChangeDutyCycle(count)
-
-        time.sleep(0.01)
-
         # set duty cycle
         pwm.ChangeDutyCycle(count)
 
